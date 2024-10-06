@@ -13,9 +13,3 @@ class Sensor(models.Model):
     pressure: str = models.TextField()
     temperature: str = models.TextField()
 
-class Document(models.Model):
-    """Document model structure"""
-
-    command: str = models.TextField()
-    request_path: str = models.TextField()
-    documentation: str = models.TextField(default="No documentation")

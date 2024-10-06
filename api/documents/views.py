@@ -7,7 +7,7 @@ from ninja import Router
 from ninja.pagination import LimitOffsetPagination, paginate
 
 
-from documents.schemas import SensorIn, DocumentIn, DocumentOut
+from documents.schemas import SensorIn, DocumentIn
 from documents.controllers import (
     dane_gleb,
     dane_gleb_wykres,

@@ -19,9 +19,3 @@ class DocumentIn(Schema):
     number: str
     message: str
 
-class DocumentOut(Schema):
-    """Output schema for document"""
-
-    id: int
-    number: str
-    message: str

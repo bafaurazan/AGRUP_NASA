@@ -8,8 +8,8 @@ import requests
 from django.http import HttpRequest, JsonResponse, HttpResponse
 from http import HTTPStatus
 
-from documents.models import Sensor, Document
-from documents.schemas import SensorIn, DocumentIn, DocumentOut
+from documents.models import Sensor
+from documents.schemas import SensorIn, DocumentIn
 
 import matplotlib.pyplot as plt
 from io import BytesIO
