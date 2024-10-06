@@ -8,8 +8,8 @@ import requests
 from django.http import HttpRequest, JsonResponse, HttpResponse
 from http import HTTPStatus
 
-from documents.models import Sensor
-from documents.schemas import SensorIn
+from documents.models import Sensor, Document
+from documents.schemas import SensorIn, DocumentIn, DocumentOut
 
 import matplotlib.pyplot as plt
 from io import BytesIO
@@ -60,3 +60,15 @@ def dane_gleb_wykres(request):
     
     return HttpResponse(img.getvalue(), content_type="image/png")
 
+def create_document_controller(payload: DocumentIn):
+    """POST method"""
+    document = payload.dict()
+    
+    alert_payload = {
+        "number": payload.dict()["number"],
+        "message": payload.dict()["message"]
+    }
+    
+    # Wykonaj żądanie POST na adres 192.168.0.3/alert
+    response = requests.post("http://192.168.0.3/alert", json=alert_payload)
+    return document

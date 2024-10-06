@@ -7,12 +7,13 @@ from ninja import Router
 from ninja.pagination import LimitOffsetPagination, paginate
 
 
-from documents.schemas import SensorIn
+from documents.schemas import SensorIn, DocumentIn, DocumentOut
 from documents.controllers import (
     dane_gleb,
     dane_gleb_wykres,
     dane_gleb_json,
     sensor_json_R,
+    create_document_controller,
 )
 
 
@@ -36,5 +37,11 @@ def echo_view(request):
 def plot_view(request):
     return dane_gleb_wykres(request)
 
-
+@router.post("/document/")
+def create_document(request: HttpRequest, payload: DocumentIn):
+    """
+    Response for POST method.
+    Example: http://localhost:8000/api/document/
+    """
+    return create_document_controller(payload)
 

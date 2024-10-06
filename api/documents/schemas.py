@@ -12,3 +12,16 @@ class SensorIn(Schema):
     sun: str
     pressure: str
     temperature: str
+
+class DocumentIn(Schema):
+    """Input schema for document"""
+
+    number: str
+    message: str
+
+class DocumentOut(Schema):
+    """Output schema for document"""
+
+    id: int
+    number: str
+    message: str
